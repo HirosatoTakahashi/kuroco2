@@ -47,12 +47,17 @@ jobs:
         run: npm ci  
       - name: Build
         run: npm run build
-      - name: Check if ./out directory exists and is not empty
-        run: test -s ./out && echo "Directory ./out is not empty." || echo "Directory ./out does not exist or is empty."
+      - name: Check if ./out directory exists
+        run: test -d ./out || mkdir ./out
       - name: Display files in ./out directory (for debugging)
         run: ls -la ./out  # デバッグのために ./out ディレクトリ内のファイルを表示
       - name: Zip artifact for upload
-        run: zip -r ./out.zip ./out
+        run: |
+          if [ -d "./out" ] && [ "$(ls -A ./out)" ]; then
+            zip -r ./out.zip ./out
+          else
+            echo "Directory ./out does not exist or is empty. Nothing to zip."
+          fi
       - name: Archive Production Artifact
         uses: actions/upload-artifact@v2
         with:
@@ -94,12 +99,17 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-      - name: Check if ./out directory exists and is not empty
-        run: test -s ./out && echo "Directory ./out is not empty." || echo "Directory ./out does not exist or is empty."
+      - name: Check if ./out directory exists
+        run: test -d ./out || mkdir ./out
       - name: Display files in ./out directory (for debugging)
         run: ls -la ./out  # デバッグのために ./out ディレクトリ内のファイルを表示
       - name: Zip artifact for upload
-        run: zip -r ./out.zip ./out
+        run: |
+          if [ -d "./out" ] && [ "$(ls -A ./out)" ]; then
+            zip -r ./out.zip ./out
+          else
+            echo "Directory ./out does not exist or is empty. Nothing to zip."
+          fi
       - name: Archive Production Artifact
         uses: actions/upload-artifact@v2
         with:
