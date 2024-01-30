@@ -54,7 +54,7 @@ jobs:
       - name: Copy files to ./out directory
         run: cp -r .nuxt/* ./out # .nuxt ディレクトリにあるビルドで生成されたファイルを ./out にコピー
       - name: Copy kuroco_front.json to ./out directory
-        run: cp static/kuroco_front.json ./out/ # kuroco_front.json を./out `にコピー
+        run: cp static/kuroco_front.json ./out/dist # kuroco_front.json を./out/dist `にコピー
       - name: Display files in ./out directory (for debugging)
         run: ls -la ./out  # デバッグのために ./out ディレクトリ内のファイルを表示
       - name: Zip artifact for upload
@@ -112,7 +112,7 @@ jobs:
       - name: Copy files to ./out directory
         run: cp -r .nuxt/* ./out # .nuxt ディレクトリにあるビルドで生成されたファイルを ./out にコピー
       - name: Copy kuroco_front.json to ./out directory
-        run: cp static/kuroco_front.json ./out/ # kuroco_front.json を./out `にコピー
+        run: cp static/kuroco_front.json ./out/dist # kuroco_front.json を./out/dist `にコピー
       - name: Display files in ./out directory (for debugging)
         run: ls -la ./out  # デバッグのために ./out ディレクトリ内のファイルを表示
       - name: Zip artifact for upload
