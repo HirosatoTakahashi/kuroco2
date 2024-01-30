@@ -47,6 +47,8 @@ jobs:
         run: npm ci  
       - name: Build
         run: npm run build
+      - name: Check if ./out directory exists and is not empty
+        run: test -s ./out && echo "Directory ./out is not empty." || echo "Directory ./out does not exist or is empty."
       - name: Zip artifact for upload
         run: zip -r ./out.zip ./out
       - name: Archive Production Artifact
