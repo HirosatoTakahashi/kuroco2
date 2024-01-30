@@ -48,7 +48,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Zip artifact for upload
-        run:  zip ./out.zip ./out -r
+        run: zip -r ./out.zip ./out
       - name: Archive Production Artifact
         uses: actions/upload-artifact@v2
         with:
@@ -91,7 +91,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Zip artifact for upload
-        run:  zip ./out.zip ./out -r
+        run: zip -r ./out.zip ./out
       - name: Archive Production Artifact
         uses: actions/upload-artifact@v2
         with:
