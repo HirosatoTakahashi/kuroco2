@@ -47,12 +47,12 @@ jobs:
         run: npm ci  
       - name: Build
         run: npm run build
-      - name: Display files in build directory (for debugging)
-        run: ls -la build  # ビルドフェーズで生成されたファイルがここにあると仮定
+      - name: Display files in .nuxt directory (for debugging)
+        run: ls -la .nuxt  # ビルドで生成されたファイルがここにあることを確認
       - name: Check if ./out directory exists
         run: test -d ./out || mkdir ./out
-      - name: Copy files to ./out directory # ./out ディレクトリにビルドで生成されたファイルをコピー
-        run: cp -r build/* ./out
+      - name: Copy files to ./out directory
+        run: cp -r .nuxt/* ./out # .nuxt ディレクトリにあるビルドで生成されたファイルを ./out にコピー
       - name: Display files in ./out directory (for debugging)
         run: ls -la ./out  # デバッグのために ./out ディレクトリ内のファイルを表示
       - name: Zip artifact for upload
@@ -103,12 +103,12 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-      - name: Display files in build directory (for debugging)
-        run: ls -la build  # ビルドフェーズで生成されたファイルがここにあると仮定
+      - name: Display files in .nuxt directory (for debugging)
+        run: ls -la .nuxt  # ビルドで生成されたファイルがここにあることを確認
       - name: Check if ./out directory exists
         run: test -d ./out || mkdir ./out
-      - name: Copy files to ./out directory # ./out ディレクトリにビルドで生成されたファイルをコピー
-        run: cp -r build/* ./out
+      - name: Copy files to ./out directory
+        run: cp -r .nuxt/* ./out # .nuxt ディレクトリにあるビルドで生成されたファイルを ./out にコピー
       - name: Display files in ./out directory (for debugging)
         run: ls -la ./out  # デバッグのために ./out ディレクトリ内のファイルを表示
       - name: Zip artifact for upload
